@@ -1,0 +1,173 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Github, ExternalLink, Lock, Search, Eye, FileWarning, KeyRound, Hash } from "lucide-react";
+
+type Project = {
+  title: string;
+  tagline: string;
+  description: string;
+  tech: string[];
+  github: string;
+  icon: React.ComponentType<{ className?: string }>;
+};
+
+const projects: Project[] = [
+  {
+    title: "PassGuard",
+    tagline: "Password strength analyzer & generator",
+    description:
+      "Local CLI that scores passwords by Shannon entropy, checks against the rockyou dictionary, and generates passphrases. Built to internalize what makes a password actually strong.",
+    tech: ["Python", "argparse", "zxcvbn"],
+    github: "https://github.com/obianwumichael/passguard",
+    icon: KeyRound,
+  },
+  {
+    title: "PhishLens",
+    tagline: "Browser phishing URL heuristic checker",
+    description:
+      "Chrome extension that flags suspicious URLs using public blocklists plus simple heuristics (homoglyphs, suspicious TLDs, excessive subdomains). My first dive into MV3 extensions.",
+    tech: ["JavaScript", "Chrome MV3", "Regex"],
+    github: "https://github.com/obianwumichael/phishlens",
+    icon: Eye,
+  },
+  {
+    title: "PortSweeper",
+    tagline: "Educational TCP port scanner",
+    description:
+      "Small async TCP port scanner with banner grabbing. Strictly for labs I own. Helped me understand what Nmap is actually doing under the hood, one socket at a time.",
+    tech: ["Python", "asyncio", "socket"],
+    github: "https://github.com/obianwumichael/portsweeper",
+    icon: Search,
+  },
+  {
+    title: "LogSentinel",
+    tagline: "Brute-force detector for auth.log",
+    description:
+      "Watches Linux auth.log for repeated SSH failures and pushes alerts to a Slack or email webhook. My intro to log parsing and detection rules.",
+    tech: ["Python", "Slack API", "systemd"],
+    github: "https://github.com/obianwumichael/logsentinel",
+    icon: FileWarning,
+  },
+  {
+    title: "CryptoNote",
+    tagline: "AES-GCM encrypted CLI note-taker",
+    description:
+      "Stores personal notes encrypted at rest with AES-GCM, derived keys via Argon2. A playground for learning safe defaults and where things break when you skip them.",
+    tech: ["Python", "cryptography", "Argon2"],
+    github: "https://github.com/obianwumichael/cryptonote",
+    icon: Lock,
+  },
+  {
+    title: "HashID-Lite",
+    tagline: "Web hash identifier",
+    description:
+      "Tiny Next.js app that takes a hash and guesses its format (MD5, SHA-1, bcrypt, etc.) using regex patterns. Built mostly to practice React and shipping something to Vercel.",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+    github: "https://github.com/obianwumichael/hashid-lite",
+    icon: Hash,
+  },
+];
+
+export function ProjectsSection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section
+      id="projects"
+      className="flex min-h-screen items-center justify-center px-4 py-20 md:px-6"
+    >
+      <div ref={ref} className="mx-auto w-full max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
+          animate={
+            inView
+              ? { opacity: 1, y: 0, filter: "blur(0px)" }
+              : { opacity: 0, y: 16, filter: "blur(8px)" }
+          }
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mb-10 text-center"
+        >
+          <p className="font-mono text-xs uppercase tracking-widest text-accent">
+            03 — Work
+          </p>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
+            Projects
+          </h2>
+          <div className="mx-auto mt-3 h-0.5 w-12 bg-foreground/80" />
+          <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
+            Small security tools I&apos;ve built to learn by doing. Each one
+            taught me something I couldn&apos;t get from a tutorial.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <motion.article
+                key={p.title}
+                initial={{ opacity: 0, y: 16 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.1 + i * 0.08,
+                  ease: "easeOut",
+                }}
+                className="group flex flex-col rounded-lg border border-border bg-card p-5 transition-colors hover:border-accent/50"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-muted">
+                    <Icon className="h-4 w-4 text-accent" />
+                  </div>
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${p.title} on GitHub`}
+                    className="text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    <Github className="h-4 w-4" />
+                  </a>
+                </div>
+
+                <h3 className="mt-4 text-lg font-semibold leading-tight">
+                  {p.title}
+                </h3>
+                <p className="mt-1 font-mono text-xs text-accent">
+                  {p.tagline}
+                </p>
+                <p className="mt-3 flex-1 text-sm text-muted-foreground">
+                  {p.description}
+                </p>
+
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {p.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full border border-border bg-muted/50 px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-foreground transition-opacity hover:opacity-80"
+                >
+                  View on GitHub
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </motion.article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
