@@ -46,7 +46,8 @@ lib/
   utils.ts                            # cn() — clsx + tailwind-merge
 
 public/
-  avatar.svg                          # Placeholder avatar (OM initials, gradient bg)
+  .nojekyll                           # Tells GitHub Pages to serve _next/ as-is
+  images/PortfolioImage.png           # Hero portrait (imported statically in hero-section.tsx)
 ```
 
 ## Coding Conventions
