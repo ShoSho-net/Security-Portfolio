@@ -1,4 +1,4 @@
-# CLAUDE.md — Security-Portfolio
+# CLAUDE.md — shosho-net.github.io (Cybersecurity Portfolio)
 
 ## Project Overview
 

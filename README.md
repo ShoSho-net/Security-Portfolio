@@ -2,7 +2,7 @@
 
 Personal portfolio website for **Obianwu Micheal Ifeatu**, a Theatre Arts student at the University of Ibadan building a foundation in cybersecurity. The site introduces who he is, the certifications he's working toward, his early hands-on projects, and the tools he's learning.
 
-**Live site:** https://shosho-net.github.io/Security-Portfolio/
+**Live site:** https://shosho-net.github.io/
 
 ## Tech Stack
 
