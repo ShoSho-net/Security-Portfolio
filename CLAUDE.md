@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Personal portfolio for **Obianwu Michael**, an aspiring security software engineer. Single-page, client-side site inspired by [santifer.io](https://santifer.io/). No backend, no API routes, no database. All content lives in component files.
+Personal portfolio for **Obianwu Micheal Ifeatu**, a Theatre Arts student at the University of Ibadan who is just starting out in cybersecurity. Single-page, client-side site. No backend, no API routes, no database. All content lives in component files. Built as a static export and hosted on GitHub Pages.
 
 ## Tech Stack
 
@@ -38,9 +38,9 @@ components/
   theme-toggle.tsx                    # Sun/Moon button
   hero-section.tsx                    # Avatar, name, headline, CTAs, socials
   about-section.tsx                   # Bio + "currently learning" aside
-  certifications-section.tsx          # Card grid; status badges (Earned/In Progress/Studying)
+  certifications-section.tsx          # Roadmap card grid; status badges (Planned/In Progress/Earned)
   projects-section.tsx                # Card grid; tech badges; GitHub links
-  tech-stack-section.tsx              # Icon grid grouped by category; uses cdn.simpleicons.org
+  tech-stack-section.tsx              # Flat icon grid; uses cdn.simpleicons.org
 
 lib/
   utils.ts                            # cn() — clsx + tailwind-merge
@@ -93,18 +93,18 @@ Edit [components/projects-section.tsx](components/projects-section.tsx) and appe
   tagline: "One-line description",
   description: "Longer paragraph about what it does and what you learned.",
   tech: ["Python", "asyncio"],
-  github: "https://github.com/obianwumichael/mytool",
+  github: "https://github.com/ShoSho-net/mytool",
   icon: SomeLucideIcon,
 }
 ```
 
 ## Adding a New Certification
 
-Edit [components/certifications-section.tsx](components/certifications-section.tsx) and append to the `certifications` array. `status` must be one of: `"Earned" | "In Progress" | "Studying"`.
+Edit [components/certifications-section.tsx](components/certifications-section.tsx) and append to the `certifications` array. `status` must be one of: `"Planned" | "In Progress" | "Earned"` (the section is framed as a roadmap — owner has not started any certs yet). `note` is a short label (e.g., "First step", "Long-term goal").
 
 ## Adding a Tech to the Stack
 
-Edit [components/tech-stack-section.tsx](components/tech-stack-section.tsx). Add to the appropriate group's `items`:
+Edit [components/tech-stack-section.tsx](components/tech-stack-section.tsx). Add to the flat `tools` array:
 ```ts
 { name: "Rust", logo: "https://cdn.simpleicons.org/rust/000000" }
 ```
@@ -127,9 +127,9 @@ Find the simpleicons slug at https://simpleicons.org/.
 
 ## Known Limitations
 
-- All content is placeholder/dummy — projects link to GitHub URLs that don't exist yet
+- Project cards link to repos under `github.com/ShoSho-net/*` that don't exist yet — create them or remove the links
 - Contact CTA is a plain `mailto:` — no form or backend
-- Social links use placeholder usernames (`obianwumichael`); update before publishing
+- Email, LinkedIn, and Twitter links are still placeholders (`obianwumichael@example.com`, etc.) — update with real values before publishing. GitHub handle is real (`ShoSho-net`).
 - No tests installed
 - No SEO meta beyond title/description; no Open Graph image
 - No analytics

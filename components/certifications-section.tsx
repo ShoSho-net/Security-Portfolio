@@ -2,71 +2,69 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Award, CircleDot, CheckCircle2 } from "lucide-react";
+import { Award, Target, CircleDot, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type Status = "Earned" | "In Progress" | "Studying";
+type Status = "Planned" | "In Progress" | "Earned";
 
 type Certification = {
   title: string;
   issuer: string;
   status: Status;
-  date: string;
+  note: string;
 };
 
 const certifications: Certification[] = [
   {
+    title: "TryHackMe — Pre-Security Path",
+    issuer: "TryHackMe",
+    status: "Planned",
+    note: "First step",
+  },
+  {
     title: "Google Cybersecurity Professional Certificate",
     issuer: "Coursera",
-    status: "In Progress",
-    date: "Started 2026",
+    status: "Planned",
+    note: "Foundations",
+  },
+  {
+    title: "Cisco Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    status: "Planned",
+    note: "Foundations",
   },
   {
     title: "CompTIA Security+ (SY0-701)",
     issuer: "CompTIA",
-    status: "Studying",
-    date: "Exam planned 2026",
-  },
-  {
-    title: "TryHackMe — Pre-Security Path",
-    issuer: "TryHackMe",
-    status: "Earned",
-    date: "2026",
-  },
-  {
-    title: "TryHackMe — SOC Level 1",
-    issuer: "TryHackMe",
-    status: "In Progress",
-    date: "Started 2026",
-  },
-  {
-    title: "Introduction to Cybersecurity",
-    issuer: "Cisco Networking Academy",
-    status: "Earned",
-    date: "2025",
+    status: "Planned",
+    note: "Long-term goal",
   },
   {
     title: "Certified in Cybersecurity (CC)",
     issuer: "ISC2",
-    status: "In Progress",
-    date: "Started 2026",
+    status: "Planned",
+    note: "Long-term goal",
+  },
+  {
+    title: "CompTIA Network+",
+    issuer: "CompTIA",
+    status: "Planned",
+    note: "Networking base",
   },
 ];
 
 const statusStyles: Record<Status, string> = {
-  Earned:
-    "bg-accent/10 text-accent border-accent/30",
+  Planned: "bg-muted text-muted-foreground border-border",
   "In Progress":
     "bg-blue-500/10 text-blue-500 border-blue-500/30 dark:text-blue-400",
-  Studying:
-    "bg-amber-500/10 text-amber-600 border-amber-500/30 dark:text-amber-400",
+  Earned: "bg-accent/10 text-accent border-accent/30",
 };
 
 const statusIcons: Record<Status, React.ComponentType<{ className?: string }>> =
   {
-    Earned: CheckCircle2,
+    Planned: Target,
     "In Progress": CircleDot,
-    Studying: CircleDot,
+    Earned: CheckCircle2,
   };
 
 export function CertificationsSection() {
@@ -90,15 +88,16 @@ export function CertificationsSection() {
           className="mb-10 text-center"
         >
           <p className="font-mono text-xs uppercase tracking-widest text-accent">
-            02 — Credentials
+            02 — Roadmap
           </p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">
-            Certifications
+            Certification Roadmap
           </h2>
           <div className="mx-auto mt-3 h-0.5 w-12 bg-foreground/80" />
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-            Foundational tracks I&apos;m working through to build a credible
-            base in security.
+            I haven&apos;t started any of these yet — this is the path
+            I&apos;m planning to follow to build a credible foundation in
+            security, roughly in the order I intend to tackle them.
           </p>
         </motion.div>
 
@@ -123,7 +122,7 @@ export function CertificationsSection() {
                 <div className="min-w-0 flex-1">
                   <h3 className="font-semibold leading-tight">{cert.title}</h3>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    {cert.issuer} &middot; {cert.date}
+                    {cert.issuer} &middot; {cert.note}
                   </p>
                   <span
                     className={cn(

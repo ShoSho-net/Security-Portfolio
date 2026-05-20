@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Github, ExternalLink, Lock, Search, Eye, FileWarning, KeyRound, Hash } from "lucide-react";
+import { Github, ExternalLink, Lock, Search, KeyRound } from "lucide-react";
 
 type Project = {
   title: string;
@@ -16,57 +16,30 @@ type Project = {
 const projects: Project[] = [
   {
     title: "PassGuard",
-    tagline: "Password strength analyzer & generator",
+    tagline: "Password strength checker",
     description:
-      "Local CLI that scores passwords by Shannon entropy, checks against the rockyou dictionary, and generates passphrases. Built to internalize what makes a password actually strong.",
-    tech: ["Python", "argparse", "zxcvbn"],
-    github: "https://github.com/obianwumichael/passguard",
+      "A small Python script that rates how strong a password is — checking length, character mix, and whether it appears on common-password lists. My first real coding project while learning the basics.",
+    tech: ["Python"],
+    github: "https://github.com/ShoSho-net/passguard",
     icon: KeyRound,
   },
   {
-    title: "PhishLens",
-    tagline: "Browser phishing URL heuristic checker",
+    title: "CipherPlay",
+    tagline: "Caesar cipher encoder & decoder",
     description:
-      "Chrome extension that flags suspicious URLs using public blocklists plus simple heuristics (homoglyphs, suspicious TLDs, excessive subdomains). My first dive into MV3 extensions.",
-    tech: ["JavaScript", "Chrome MV3", "Regex"],
-    github: "https://github.com/obianwumichael/phishlens",
-    icon: Eye,
-  },
-  {
-    title: "PortSweeper",
-    tagline: "Educational TCP port scanner",
-    description:
-      "Small async TCP port scanner with banner grabbing. Strictly for labs I own. Helped me understand what Nmap is actually doing under the hood, one socket at a time.",
-    tech: ["Python", "asyncio", "socket"],
-    github: "https://github.com/obianwumichael/portsweeper",
-    icon: Search,
-  },
-  {
-    title: "LogSentinel",
-    tagline: "Brute-force detector for auth.log",
-    description:
-      "Watches Linux auth.log for repeated SSH failures and pushes alerts to a Slack or email webhook. My intro to log parsing and detection rules.",
-    tech: ["Python", "Slack API", "systemd"],
-    github: "https://github.com/obianwumichael/logsentinel",
-    icon: FileWarning,
-  },
-  {
-    title: "CryptoNote",
-    tagline: "AES-GCM encrypted CLI note-taker",
-    description:
-      "Stores personal notes encrypted at rest with AES-GCM, derived keys via Argon2. A playground for learning safe defaults and where things break when you skip them.",
-    tech: ["Python", "cryptography", "Argon2"],
-    github: "https://github.com/obianwumichael/cryptonote",
+      "A command-line tool to encode and decode messages using the classic Caesar cipher. Built to understand how simple encryption works before moving on to the modern stuff.",
+    tech: ["Python"],
+    github: "https://github.com/ShoSho-net/cipherplay",
     icon: Lock,
   },
   {
-    title: "HashID-Lite",
-    tagline: "Web hash identifier",
+    title: "PortSweeper",
+    tagline: "Simple port scanner",
     description:
-      "Tiny Next.js app that takes a hash and guesses its format (MD5, SHA-1, bcrypt, etc.) using regex patterns. Built mostly to practice React and shipping something to Vercel.",
-    tech: ["Next.js", "TypeScript", "Tailwind"],
-    github: "https://github.com/obianwumichael/hashid-lite",
-    icon: Hash,
+      "A beginner-friendly TCP port scanner I run only on machines I own, to learn what ports and services actually are. This is where networking finally started to click for me.",
+    tech: ["Python", "socket"],
+    github: "https://github.com/ShoSho-net/portsweeper",
+    icon: Search,
   },
 ];
 
@@ -98,8 +71,8 @@ export function ProjectsSection() {
           </h2>
           <div className="mx-auto mt-3 h-0.5 w-12 bg-foreground/80" />
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-            Small security tools I&apos;ve built to learn by doing. Each one
-            taught me something I couldn&apos;t get from a tutorial.
+            A few tiny tools I&apos;m building as I learn the basics. Nothing
+            fancy — just hands-on practice to make the concepts stick.
           </p>
         </motion.div>
 

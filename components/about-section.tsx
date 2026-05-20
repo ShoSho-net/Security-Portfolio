@@ -2,14 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { BookOpen, ShieldCheck, Code2 } from "lucide-react";
-
-const currentlyLearning = [
-  "TryHackMe — SOC Level 1 path",
-  "Python for security automation",
-  "Linux internals & basic incident response",
-  "Web app security fundamentals (OWASP Top 10)",
-];
 
 export function AboutSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -40,7 +32,7 @@ export function AboutSection() {
           <div className="mx-auto mt-3 h-0.5 w-12 bg-foreground/80" />
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-[2fr_1fr]">
+        <div className="mx-auto max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
@@ -48,62 +40,29 @@ export function AboutSection() {
             className="space-y-4 text-base leading-relaxed text-muted-foreground"
           >
             <p>
-              I&apos;m Michael, a Computer Science student fascinated by the
-              quiet, careful side of software — the part that decides whether a
-              system holds up when someone curious knocks on the door. My
-              journey into security started after my first CTF, where solving a
-              simple challenge felt more rewarding than any tutorial I&apos;d
-              followed.
+              I&apos;m Micheal, a Theatre Arts student at the{" "}
+              <span className="text-foreground">University of Ibadan</span> with
+              a growing obsession for cybersecurity. My path here isn&apos;t the
+              usual one — I came from the stage, not the server room — but the
+              same curiosity that pulls me into a script pulls me into
+              understanding how digital systems really work, and how they break.
             </p>
             <p>
-              I&apos;m currently working through the{" "}
-              <span className="text-foreground">Google Cybersecurity</span> and{" "}
-              <span className="text-foreground">CompTIA Security+</span> tracks
-              while building small Python and JavaScript tools that let me
-              practice what I read about — password entropy, network scanning,
-              log analysis, and lightweight cryptography.
+              Right now I&apos;m focused on the fundamentals: how networks talk,
+              how attackers think, and how defenders respond. I&apos;m working
+              through beginner-friendly tracks like the{" "}
+              <span className="text-foreground">Google Cybersecurity</span>{" "}
+              certificate and <span className="text-foreground">TryHackMe</span>{" "}
+              rooms, taking notes, and slowly turning what I read into hands-on
+              practice.
             </p>
             <p>
-              Long term, I want to grow into a security software engineer who
-              can write the secure code, find the bugs in it, and explain both
-              sides clearly. For now, I&apos;m focused on showing up every day
-              and shipping one small thing at a time.
+              I&apos;m at the very start of this journey, and I&apos;m okay with
+              that. My goal for now is simple — show up consistently, stay
+              curious, and build a foundation strong enough to grow a real
+              career in security on top of it.
             </p>
           </motion.div>
-
-          <motion.aside
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="rounded-lg border border-border bg-card p-5"
-          >
-            <h3 className="flex items-center gap-2 font-mono text-sm font-semibold">
-              <BookOpen className="h-4 w-4 text-accent" />
-              Currently learning
-            </h3>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-              {currentlyLearning.map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4 text-center">
-              <div>
-                <ShieldCheck className="mx-auto h-4 w-4 text-accent" />
-                <p className="mt-1 font-mono text-xs text-muted-foreground">
-                  Defensive focus
-                </p>
-              </div>
-              <div>
-                <Code2 className="mx-auto h-4 w-4 text-accent" />
-                <p className="mt-1 font-mono text-xs text-muted-foreground">
-                  Secure coding
-                </p>
-              </div>
-            </div>
-          </motion.aside>
         </div>
       </div>
     </section>

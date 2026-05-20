@@ -6,68 +6,21 @@ import { motion, useInView } from "framer-motion";
 
 type Tech = { name: string; logo: string };
 
-const groups: { label: string; items: Tech[] }[] = [
+const tools: Tech[] = [
+  { name: "Python", logo: "https://cdn.simpleicons.org/python/3776AB" },
+  { name: "Linux", logo: "https://cdn.simpleicons.org/linux/FCC624" },
+  { name: "Kali Linux", logo: "https://cdn.simpleicons.org/kalilinux/557C94" },
   {
-    label: "Languages",
-    items: [
-      { name: "Python", logo: "https://cdn.simpleicons.org/python/3776AB" },
-      {
-        name: "JavaScript",
-        logo: "https://cdn.simpleicons.org/javascript/F7DF1E",
-      },
-      {
-        name: "TypeScript",
-        logo: "https://cdn.simpleicons.org/typescript/3178C6",
-      },
-      { name: "Bash", logo: "https://cdn.simpleicons.org/gnubash/4EAA25" },
-      { name: "Go", logo: "https://cdn.simpleicons.org/go/00ADD8" },
-    ],
+    name: "VirtualBox",
+    logo: "https://cdn.simpleicons.org/virtualbox/2354A2",
   },
+  { name: "Wireshark", logo: "https://cdn.simpleicons.org/wireshark/1679A7" },
+  { name: "TryHackMe", logo: "https://cdn.simpleicons.org/tryhackme/212C42" },
+  { name: "Git", logo: "https://cdn.simpleicons.org/git/F05032" },
+  { name: "GitHub", logo: "https://cdn.simpleicons.org/github/181717" },
   {
-    label: "Security Tools",
-    items: [
-      {
-        name: "Wireshark",
-        logo: "https://cdn.simpleicons.org/wireshark/1679A7",
-      },
-      {
-        name: "Burp Suite",
-        logo: "https://cdn.simpleicons.org/burpsuite/FF6633",
-      },
-      { name: "Nmap", logo: "https://cdn.simpleicons.org/nmap/0098E6" },
-      {
-        name: "Metasploit",
-        logo: "https://cdn.simpleicons.org/metasploit/2596CD",
-      },
-      { name: "Splunk", logo: "https://cdn.simpleicons.org/splunk/000000" },
-    ],
-  },
-  {
-    label: "Platforms",
-    items: [
-      { name: "Linux", logo: "https://cdn.simpleicons.org/linux/FCC624" },
-      {
-        name: "Kali Linux",
-        logo: "https://cdn.simpleicons.org/kalilinux/557C94",
-      },
-      { name: "Docker", logo: "https://cdn.simpleicons.org/docker/2496ED" },
-      {
-        name: "AWS",
-        logo: "https://cdn.simpleicons.org/amazonaws/FF9900",
-      },
-    ],
-  },
-  {
-    label: "Dev",
-    items: [
-      { name: "Git", logo: "https://cdn.simpleicons.org/git/F05032" },
-      { name: "GitHub", logo: "https://cdn.simpleicons.org/github/181717" },
-      {
-        name: "VS Code",
-        logo: "https://cdn.simpleicons.org/visualstudiocode/007ACC",
-      },
-      { name: "Postman", logo: "https://cdn.simpleicons.org/postman/FF6C37" },
-    ],
+    name: "VS Code",
+    logo: "https://cdn.simpleicons.org/visualstudiocode/007ACC",
   },
 ];
 
@@ -134,33 +87,21 @@ export function TechStackSection() {
           </h2>
           <div className="mx-auto mt-3 h-0.5 w-12 bg-foreground/80" />
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground">
-            What I reach for when building, debugging, and exploring.
+            The beginner-friendly tools I&apos;m learning my way around as I
+            get started.
           </p>
         </motion.div>
 
-        <div className="space-y-8">
-          {groups.map((group, gi) => (
-            <motion.div
-              key={group.label}
-              initial={{ opacity: 0, y: 16 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.1 + gi * 0.1,
-                ease: "easeOut",
-              }}
-            >
-              <h3 className="mb-4 font-mono text-sm font-semibold text-foreground">
-                {group.label}
-              </h3>
-              <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
-                {group.items.map((tech) => (
-                  <TechIcon key={tech.name} tech={tech} />
-                ))}
-              </div>
-            </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-5"
+        >
+          {tools.map((tech) => (
+            <TechIcon key={tech.name} tech={tech} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

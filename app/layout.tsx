@@ -7,9 +7,9 @@ import { Footer } from "@/components/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Obianwu Michael — Security Software Engineer",
+  title: "Obianwu Micheal Ifeatu — Aspiring Cybersecurity Professional",
   description:
-    "Portfolio of Obianwu Michael, an aspiring security software engineer focused on defensive security, secure coding, and learning offensive fundamentals.",
+    "Portfolio of Obianwu Micheal Ifeatu, a Theatre Arts student at the University of Ibadan exploring cybersecurity from the ground up.",
 };
 
 export default function RootLayout({

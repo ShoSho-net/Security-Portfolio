@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail, Terminal } from "lucide-react";
+import portfolioImg from "@/public/images/PortfolioImage.png";
 
 export function HeroSection() {
   return (
@@ -20,12 +21,12 @@ export function HeroSection() {
         >
           <div className="relative h-32 w-32 overflow-hidden rounded-full border border-border bg-muted md:h-40 md:w-40">
             <Image
-              src="/avatar.svg"
-              alt="Obianwu Michael"
+              src={portfolioImg}
+              alt="Obianwu Micheal Ifeatu"
               fill
               priority
               sizes="160px"
-              className="object-cover"
+              className="object-cover object-top"
             />
           </div>
         </motion.div>
@@ -42,18 +43,18 @@ export function HeroSection() {
           </p>
 
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-balance md:text-5xl lg:text-6xl">
-            Obianwu Michael
+            Obianwu Micheal Ifeatu
           </h1>
 
           <p className="mt-3 text-lg text-muted-foreground md:text-xl">
-            Security Software Engineer{" "}
-            <span className="text-foreground">in the making</span>.
+            Aspiring <span className="text-foreground">Cybersecurity</span>{" "}
+            Professional.
           </p>
 
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground text-balance md:mx-0 md:text-base">
-            Learning defensive security and secure coding by day, exploring
-            offensive fundamentals through CTFs and TryHackMe by night. Building
-            small security tools to turn theory into reps.
+            Theatre Arts student at the University of Ibadan, teaching myself the
+            fundamentals of cybersecurity one concept at a time. Curious about
+            how systems break — and, more importantly, how to keep them safe.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 md:justify-start">
@@ -70,7 +71,7 @@ export function HeroSection() {
               Certifications
             </Link>
             <Link
-              href="mailto:obianwumichael@example.com"
+              href="mailto:michealuche594@gmail.com"
               className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
             >
               Get in Touch
@@ -79,7 +80,7 @@ export function HeroSection() {
 
           <div className="mt-6 flex items-center justify-center gap-2 md:justify-start">
             <a
-              href="https://github.com/obianwumichael"
+              href="https://github.com/ShoSho-net"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -88,7 +89,7 @@ export function HeroSection() {
               <Github className="h-4 w-4" />
             </a>
             <a
-              href="https://www.linkedin.com/in/obianwumichael"
+              href="https://www.linkedin.com/in/micheal-obianwu-a1b3b740b/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -97,7 +98,7 @@ export function HeroSection() {
               <Linkedin className="h-4 w-4" />
             </a>
             <a
-              href="mailto:obianwumichael@example.com"
+              href="mailto:michealuche594@gmail.com"
               aria-label="Email"
               className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >

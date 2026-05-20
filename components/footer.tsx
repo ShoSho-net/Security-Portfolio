@@ -1,15 +1,14 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const social = [
-  { name: "GitHub", href: "https://github.com/obianwumichael", icon: Github },
+  { name: "GitHub", href: "https://github.com/ShoSho-net", icon: Github },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/obianwumichael",
+    href: "https://www.linkedin.com/in/micheal-obianwu-a1b3b740b/",
     icon: Linkedin,
   },
-  { name: "Twitter", href: "https://twitter.com/obianwumichael", icon: Twitter },
-  { name: "Email", href: "mailto:obianwumichael@example.com", icon: Mail },
+  { name: "Email", href: "mailto:michealuche594@gmail.com", icon: Mail },
 ];
 
 const navLinks = [
@@ -24,9 +23,11 @@ export function Footer() {
     <footer className="border-t border-border bg-muted/30">
       <div className="mx-auto flex max-w-5xl flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between md:px-6">
         <div>
-          <p className="font-mono text-sm font-semibold">Obianwu Michael</p>
+          <p className="font-mono text-sm font-semibold">
+            Obianwu Micheal Ifeatu
+          </p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Security Software Engineer in the making.
+            Theatre Arts student exploring cybersecurity.
           </p>
         </div>
 
@@ -59,8 +60,8 @@ export function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="mx-auto max-w-5xl px-4 py-4 text-center text-xs text-muted-foreground md:px-6">
-          &copy; {new Date().getFullYear()} Obianwu Michael. Built with Next.js
-          &amp; Tailwind CSS.
+          &copy; {new Date().getFullYear()} Obianwu Micheal Ifeatu. Built with
+          Next.js &amp; Tailwind CSS.
         </div>
       </div>
     </footer>
